@@ -25,8 +25,6 @@ public class UserDaoJDBCImpl  implements UserDao {
             e.printStackTrace();
         }
     }
-
-
     public void dropUsersTable() {
         String sql = "DROP TABLE IF EXISTS users ";
         try (Statement statement = connection.createStatement()){
@@ -35,7 +33,6 @@ public class UserDaoJDBCImpl  implements UserDao {
             e.printStackTrace();
         }
     }
-
     public void saveUser(String name, String lastName, byte age) {
         String sql = "INSERT INTO users (id ,name ,lastname ,age) VALUES (DEFAULT ,?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -48,7 +45,6 @@ public class UserDaoJDBCImpl  implements UserDao {
         }
 
     }
-
     public void removeUserById(long id) {
         String sql = "DELETE FROM users WHERE id ="+id;
         try (Statement statement = connection.createStatement()){
@@ -57,7 +53,6 @@ public class UserDaoJDBCImpl  implements UserDao {
             e.printStackTrace();
         }
     }
-
     public List<User> getAllUsers() {
         List<User> User = new ArrayList<>();
         String sql = "SELECT * FROM users";
